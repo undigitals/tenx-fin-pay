@@ -1,0 +1,153 @@
+{
+  "name": "tenx_webapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/plots": "^1.0.9",
+    "@craco/craco": "^6.4.3",
+    "@react-theming/storybook-addon": "^1.1.10",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@storybook/addon-docs": "^7.4.1",
+    "@storybook/addons": "^7.4.1",
+    "@storybook/react": "^7.4.1",
+    "@storybook/theming": "^7.4.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.2.0",
+    "@trulioo/docv": "^2.6.1",
+    "@truv/react": "^2.0.2",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^17.0.24",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "@types/react-slick": "^0.23.10",
+    "@types/styled-components": "^5.1.19",
+    "antd": "^4.18.3",
+    "antd-mask-input": "^2.0.7",
+    "async-mutex": "^0.4.0",
+    "clsx": "^1.2.1",
+    "craco-less": "^2.0.0",
+    "date-fns": "^2.29.3",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-no-relative-import-paths": "^1.3.3",
+    "framer-motion": "^6.3.3",
+    "history": "^5.3.0",
+    "husky": "^7.0.4",
+    "i18next": "^21.6.7",
+    "jsotp": "^1.0.4",
+    "lint-staged": "^13.0.3",
+    "lodash-es": "^4.17.21",
+    "microsoft-cognitiveservices-speech-sdk": "^1.22.0",
+    "polished": "^4.1.4",
+    "react": "^18.0.0",
+    "react-device-detect": "^2.1.2",
+    "react-dom": "^18.0.0",
+    "react-google-autocomplete": "^2.7.3",
+    "react-i18next": "^11.15.3",
+    "react-player": "2.10.1",
+    "react-redux": "^8.0.0",
+    "react-router-dom": "^6.14.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
+    "react-signature-canvas": "^1.0.6",
+    "react-slick": "^0.29.0",
+    "reconnecting-websocket": "^4.4.0",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-encrypt": "^4.0.0",
+    "screenfull": "6.0.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
+    "stylelint": "^14.9.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^5.0.0",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "svg-sprite": "^2.0.2",
+    "svgo": "^3.0.2",
+    "typescript": "^4.7.4",
+    "uuidv4": "^6.2.13",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "icons:sprite": "node svgIconsSprite.js",
+    "icons:watch": "watch 'yarn icons:sprite' ./src/assets/icons",
+    "start": "yarn icons:watch & react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false yarn icons:sprite && react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" yarn icons:sprite && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --cache ./src",
+    "lint-fix": "eslint ./src --fix",
+    "lint:css": "stylelint 'src/**/*.{ts,tsx,js,jsx}'",
+    "preinstall": "npx npm-force-resolutions",
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^7.4.1",
+    "@storybook/addon-backgrounds": "^7.4.1",
+    "@storybook/addon-essentials": "^7.4.1",
+    "@storybook/addon-interactions": "^7.4.1",
+    "@storybook/addon-links": "^7.4.1",
+    "@storybook/addon-mdx-gfm": "^7.4.1",
+    "@storybook/blocks": "^7.4.1",
+    "@storybook/manager-api": "^7.4.1",
+    "@storybook/node-logger": "^7.4.1",
+    "@storybook/preset-create-react-app": "^7.4.1",
+    "@storybook/react-webpack5": "^7.4.1",
+    "@storybook/testing-library": "^0.2.0",
+    "@types/lodash-es": "^4.17.7",
+    "@types/react-redux": "^7.1.21",
+    "@types/react-signature-canvas": "^1.0.2",
+    "@types/redux": "^3.6.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "craco-alias": "^3.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "storybook": "^7.4.1",
+    "storybook-addon-theme-provider": "^0.1.10",
+    "webpack": "^5.75.0"
+  },
+  "resolutions": {
+    "@types/react": "18.0.0",
+    "strip-ansi": "6.0.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

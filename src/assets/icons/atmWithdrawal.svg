@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="atmWithdrawal">
+    <rect x="1.75" y="1.74988" width="20.5" height="10.5" rx="2.25" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M4 6.99988H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M18.25 6.99988L18.25 15.4999C18.25 16.1902 17.6904 16.7499 17 16.7499L7 16.7499C6.30964 16.7499 5.75 16.1902 5.75 15.4999L5.75 6.99988L18.25 6.99988Z" fill="transparent" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M15.0625 6.99988C15.3413 7.48331 15.5 8.03969 15.5 8.63174C15.5 10.4919 13.933 11.9999 12 11.9999C10.067 11.9999 8.5 10.4919 8.5 8.63174C8.5 8.03969 8.65874 7.48331 8.9375 6.99988" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M12 17.9999L12 22.9999L10 20.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12 22.9999L14 20.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

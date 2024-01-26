@@ -1,0 +1,8 @@
+dialog.chatSheet {
+  max-height: none;
+}
+
+.chatSheet .ant-drawer-body {
+  padding-right: 15px;
+  padding-left: 15px;
+}

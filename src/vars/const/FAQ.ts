@@ -1,0 +1,1 @@
+export const WELLNESS_FAQ_GROUP_ID = 'f0320827-19d0-455f-a13a-4c918383510b';

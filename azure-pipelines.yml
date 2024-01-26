@@ -1,0 +1,65 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - development
+
+variables:
+  tag: '$(Build.BuildNumber)'
+  imageName: 'webapp-v1-docker'
+  REACT_APP_AZURE_BUILD: $(Build.BuildNumber)
+  # GENERATE_SOURCEMAP: false
+  ${{ if eq(variables['Build.SourceBranchName'], 'development') }}:
+    envName: 'development'
+    kubernetesConfigFile: 'r10-dev-k8s.yaml'
+    REACT_APP_BASE_URL: 'https://2501.pecadev.net'
+    REACT_APP_API_URL: 'https://2501.pecadev.net/api'
+  ${{ if eq(variables['Build.SourceBranchName'], 'ut') }}:
+    envName: 'ut'
+    kubernetesConfigFile: 'r10-ut-k8s.yaml'
+    REACT_APP_BASE_URL: 'https://2501-ut.pecadev.net'
+    REACT_APP_API_URL: 'https://2501-ut.pecadev.net/api'
+  ${{ if eq(variables['Build.SourceBranchName'], 'qa') }}:
+    envName: 'qa'
+    kubernetesConfigFile: 'r10-qa-k8s.yaml'
+    REACT_APP_BASE_URL: 'https://2501-qa.pecadev.net'
+    REACT_APP_API_URL: 'https://2501-qa.pecadev.net/api'
+
+pool:
+  name: 'Tenx'
+  demands:
+    - agent.name -equals ubuntu-build-agent
+
+steps:
+  - checkout: self
+
+  # Build webapp
+  - script: |
+      #yarn install --frozen-lockfile --verbose
+      yarn install 
+      yarn build
+    displayName: 'webapp: yarn install and build'
+
+  - task: Docker@2
+    displayName: Login to TenxDockerImages
+    inputs:
+      command: login
+      containerRegistry: TenxDockerImages
+
+  - task: Docker@2
+    displayName: Build a docker image
+    inputs:
+      repository: $(envName)-$(imageName)
+      command: buildAndPush
+      Dockerfile: Dockerfile
+      tags: |
+        $(tag)
+
+  # Deploy to kubernetes
+  - script: |
+      export KUBECONFIG=~/k8s-config/$(kubernetesConfigFile)
+      cd ./helm/webapp; helm upgrade -i webapp -f values.$(envName).yaml -n app --set "webapp.image.tag=$(tag)" --set "webapp.image.name=tenxdockerimages.azurecr.io/$(envName)-$(imageName)" .
+    failOnStderr: false
+    displayName: 'Deploy to kubernetes cluster'

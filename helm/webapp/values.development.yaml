@@ -1,0 +1,22 @@
+webapp:
+  image:
+    name: 'tenxdockerimages.azurecr.io/development-webapp-v1-docker'
+    tag: 'latest'
+    pullPolicy: IfNotPresent
+    pullSecret: azure-docker-registry
+  service:
+    type: ClusterIP
+    port: 80
+
+  hostname: webapp.r10-dev-k8s.pecadev.lan
+
+  ingress:
+    secretName: r10-dev-k8s-ingress-cert
+    setRealIPfrom: r10-dev-k8s-lb.pecadev.lan
+
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 3
+    cpuAverageUtilization: 80
+    memoryAverageUtilization: 80

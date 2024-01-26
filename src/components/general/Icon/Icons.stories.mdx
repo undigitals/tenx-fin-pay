@@ -1,0 +1,32 @@
+import { IconGallery, IconItem, Meta, DocsContainer } from '@storybook/blocks';
+import { SVG_ICONS } from "../../../assets/iconsList";
+import { ThemeController } from "../../../ThemeController";
+import { theme } from "../../../styles/theme";
+import { Icon } from "./Icon";
+
+<Meta
+    title="Icons/Gallery"
+    parameters={{
+        docs: {
+            container: ({ children, context }) => (
+                <DocsContainer context={context}>
+                    <ThemeController theme={theme}>
+                        {children}
+                    </ThemeController>
+                </DocsContainer>
+            ),
+        },
+    }}
+/>
+
+# Icons
+<br />
+<IconGallery>
+    {
+        SVG_ICONS.map(name => (
+            <IconItem name={name} key={name}>
+                <Icon name={name} color="black" size="big" />
+            </IconItem>
+        ))
+    }
+</IconGallery>

@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Icons/Instructions" />
+
+# Icons
+
+- Icons should be used only with [Icon component](/story/icons-icon--docs)
+- If you need icon in colored round, go for [IconSign component](/story/icons-iconsign--docs)
+- We have all icons presented in [this Figma guideline](https://www.figma.com/file/yGo7LWy04SEE2NtSU9NuIu/Tenx-Mobile-Design-System-1.0v?type=design&node-id=3865-36279&mode=design&t=zHVDu0IHvqaE2pIU-4) with names. **All icon names should be consistent with it.**
+- **Please do not add to icons anything that isn't included in this reference or doesn't look like icon!**
+- Before adding new icon check if we already have this icon in [Icon Gallery](/story/icons-gallery--docs)
+- Most icons should be exported from Figma in `.svg`, with the simplest possible layout and no specific colors, with `fill="currentColor"` and `stroke="currentColor"` attributes
+- Nevertheless, some complex icons like **flags** may be meant to use as is, with original colors. In this case just add its name to `CLEAR_ICONS` list in `src/components/general/Icon/Icon.constants.ts`
+
+### Add new icon
+
+1. Put icon svg into `assets/icons`
+2. Run `yarn icons:sprite` script
+3. Use new icon with Icon component, prop 'name' would be the same as svg file name
+4. Do not forget to commit updated `svg-icons.svg` and `iconList.ts` files
+   > There's no use to sprite build script manually, if `yarn start` is running, it includes `icon:watch` script for monitoring `assets/icons` directory, so the icon sprite will be automatically updated if there are any changes.

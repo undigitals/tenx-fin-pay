@@ -1,0 +1,1 @@
+export const { SOCKET_URL, REACT_APP_SPEECH_AUTH_TOKEN, REACT_APP_SPEECH_REGION } = process.env;

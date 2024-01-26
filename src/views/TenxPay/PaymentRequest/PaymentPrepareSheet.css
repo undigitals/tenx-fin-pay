@@ -1,0 +1,19 @@
+dialog#payment-prepare-sheet > div:first-child {
+  max-width: 100%;
+}
+
+dialog#payment-prepare-sheet .body {
+  padding-inline: 0;
+}
+
+dialog#payment-prepare-sheet .body > * {
+  margin-inline: 24px;
+}
+
+dialog#payment-prepare-sheet .body > .carousel {
+  margin-inline: 24px 0;
+}
+
+dialog#payment-prepare-sheet .body .fee {
+  margin-right: 8px;
+}

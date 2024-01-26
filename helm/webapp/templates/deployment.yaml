@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "webapp.fullname" . }}
+  labels:
+    {{- include "webapp.labels" . | nindent 4 }}
+spec:  
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "webapp.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:     
+      labels:
+        {{- include "webapp.selectorLabels" . | nindent 8 }}
+    spec:
+      automountServiceAccountToken: false      
+      containers:       
+        - image: "{{ .Values.webapp.image.name }}:{{ .Values.webapp.image.tag }}"
+          name: {{ .Chart.Name }}
+          imagePullPolicy: {{ .Values.webapp.image.pullPolicy }}
+          ports:
+            - name: {{ .Values.webapp.service.port }}-port
+              containerPort: {{ .Values.webapp.service.port }}
+              protocol: TCP
+      imagePullSecrets:
+        - name: {{ .Values.webapp.image.pullSecret }}

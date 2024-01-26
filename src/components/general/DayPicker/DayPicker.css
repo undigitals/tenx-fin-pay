@@ -1,0 +1,183 @@
+/* RESET START */
+
+section.picker h2,
+section.picker table,
+section.picker tr,
+section.picker td,
+section.picker th {
+	margin: 0;
+	padding: 0;
+}
+
+section.picker,
+section.picker *,
+section.picker *::after,
+section.picker *::before {
+	flex: 1 0 auto; /* safari bugfix */
+	box-sizing: border-box;
+}
+
+section button {
+	cursor: pointer;
+}
+
+section button,
+section table {
+	font-size: 1em;
+	line-height: 1.5;
+	font-style: normal;
+}
+
+/* RESET END */
+
+/* COMMON START */
+
+.visually-hidden {
+	position: absolute;
+	/* XXX: with no explicit position and no positioned ancestor this would lead to double scrollbars */
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* COMMON END */
+
+section.picker {
+	width: 100%;
+	padding: 1.5em;
+	border: 0.125em solid var(--color-charcoal5);
+	border-radius: 1em;
+	background-color: var(--color-white);
+	color: var(--color-charcoal);
+}
+
+section.picker button {
+	color: currentColor;
+}
+
+section.picker header {
+	display: flex;
+	align-items: center;
+}
+
+section.picker h2 {
+	font-weight: 700;
+	font-size: 1em;
+	color: currentColor;
+}
+
+section.picker header button {
+	position: relative;
+	appearance: none;
+	width: 1.5em;
+	aspect-ratio: 1;
+	padding: 0;
+	border: none;
+	flex-grow: 0;
+	background-color: var(--color-transparent);
+}
+
+section.picker header button::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	mask: url(arrow.svg) no-repeat 0/contain;
+	background-color: currentColor;
+}
+
+section.picker header button:hover::before {
+	background-color: var(--color-charcoal-lighten30);
+}
+
+section.picker header button + button {
+	margin-left: 1em;
+}
+
+section.picker header button + button::before {
+	transform: rotate(180deg);
+}
+
+section.picker table {
+	width: 100%;
+	table-layout: fixed;
+	border-spacing: 0 0.25em;
+	margin-top: 1em;
+	text-align: center;
+}
+
+section.picker thead th {
+	font-weight: 400;
+	font-size: 0.875em;
+	color: var(--color-charcoal70);
+	text-transform: uppercase;
+}
+
+section.picker tbody td button {
+	appearance: none;
+	width: 100%;
+	aspect-ratio: 1;
+	padding: 0.5em 0;
+	border: none;
+	background-color: var(--color-transparent);
+}
+
+section.picker tbody td button:disabled {
+	cursor: not-allowed;
+	color: var(--color-charcoal-transparent25);
+}
+
+section.picker tbody td:not(.selected):not(.start):not(.end) button:hover:not(:disabled) {
+	border-radius: 0.5em;
+	background-color: var(--color-blue5);
+}
+
+section.picker tbody td.outside button {
+	visibility: hidden;
+}
+
+section.picker tbody td.today button {
+	font-weight: 700;
+}
+
+section.picker tbody td:is(.start, .end) button {
+	background-color: var(--color-blue);
+	color: var(--color-white);
+}
+
+section.picker tbody td.start:not(.end) {
+	background: linear-gradient(90deg, var(--color-transparent), 50%, var(--color-blue5));
+}
+
+section.picker tbody td.end:not(.start) {
+	background: linear-gradient(-90deg, var(--color-transparent), 50%, var(--color-blue5));
+}
+
+section.picker tbody td.start button {
+	border-radius: 50% 0.5em 0.5em 50%;
+}
+
+section.picker tbody td.end button {
+	border-radius: 0.5em 50% 50% 0.5em;
+}
+
+section.picker tbody td.start.end button {
+	border-radius: 0.5em;
+}
+
+section.picker tbody td.selected button {
+	background-color: var(--color-blue5);
+}
+
+section.picker tbody td.selected:is(:first-child, .first) button {
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+}
+
+section.picker tbody td.selected:is(:last-child, .last) button {
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+}

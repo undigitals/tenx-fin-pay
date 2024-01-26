@@ -1,0 +1,89 @@
+import {ColorItem, ColorPalette, Meta, Title} from '@storybook/addon-docs';
+import {
+    theme,
+    themeBlue,
+    themeBluePurple,
+    themeBlueShades,
+    themeCharcoal,
+    themeCream,
+    themeCreamSaturatedShades,
+    themeCreamShades,
+    themeGold,
+    themeGoldOrange,
+    themeGreen,
+    themeOrange,
+    themePurple,
+    themeRed
+} from "./theme";
+
+<Meta title="Colors" />
+
+<Title>Theme Colors</Title>
+<br />
+<br />
+<ColorPalette>
+    <ColorItem
+        title="Charcoal"
+        colors={themeCharcoal}
+    />
+    <ColorItem
+        title="Cream"
+        colors={themeCream}
+    />
+    <ColorItem
+        title="Cream Shades"
+        colors={themeCreamShades}
+    />
+    <ColorItem
+        title="Cream Saturated Shades"
+        colors={themeCreamSaturatedShades}
+    />
+    <ColorItem
+        title="Orange"
+        colors={themeOrange}
+    />
+    <ColorItem
+        title="Gold-Orange"
+        colors={themeGoldOrange}
+    />
+    <ColorItem
+        title="Gold"
+        colors={themeGold}
+    />
+    <ColorItem
+        title="Purple"
+        colors={themePurple}
+    />
+    <ColorItem
+        title="Blue-Purple"
+        colors={themeBluePurple}
+    />
+    <ColorItem
+        title="Blue"
+        colors={themeBlue}
+    />
+    <ColorItem
+        title="Blue Shades"
+        colors={themeBlueShades}
+    />
+    <ColorItem
+        title="Green"
+        colors={themeGreen}
+    />
+    <ColorItem
+        title="Red"
+        colors={themeRed}
+    />
+    <ColorItem
+        title="White"
+        colors={{white: theme.white}}
+    />
+    <ColorItem
+        title="Black"
+        colors={{black: theme.black}}
+    />
+    <ColorItem
+        title="Transparent"
+        colors={[theme.transparent]}
+    />
+</ColorPalette>

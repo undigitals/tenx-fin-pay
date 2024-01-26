@@ -1,0 +1,10 @@
+export { ReactComponent as TenxLong } from './tenxLong.svg';
+export { ReactComponent as TenxLongWhite } from './tenxLongWhite.svg';
+export { ReactComponent as VisaLogo } from './visaLogo.svg';
+export { ReactComponent as TenxRoundLogo } from './tenxRound.svg';
+export { ReactComponent as SpotifyLogo } from './spotify.svg';
+export { ReactComponent as mastercardLogo } from './mastercard.svg';
+export { ReactComponent as discoverLogo } from './discover.svg';
+export { ReactComponent as americanExpressText } from './americanExpressText.svg';
+export { ReactComponent as americanExpressLogo } from './americanExpressLogo.svg';
+export { default as tenxLong } from './tenxLong.svg';
